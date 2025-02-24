@@ -1,0 +1,141 @@
+CREATE TABLE movie_app.user (
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(45),
+    email varchar(45),
+    usercol varchar(45),
+    phno varchar(45),
+    password varchar(45),
+    address varchar(45),
+    landmark varchar(45),
+    city varchar(45),
+    state varchar(45),
+    PRIMARY KEY (id));
+/
+select * from movie_app.user;
+/
+select * from movie_app.movie_dtls;
+/
+select * from movie_app.movie_dtls where movieid=2
+/
+CREATE TABLE movie_app.movie_dtls (
+movieid INT NOT NULL AUTO_INCREMENT,
+moviename VARCHAR(45) NULL,
+director VARCHAR(45) NULL,
+price VARCHAR(45) NULL,
+movieCategory VARCHAR(45) NULL,
+status VARCHAR(45) NULL,
+photo VARCHAR(45) NULL,
+email VARCHAR(45) NULL,
+PRIMARY KEY (movieid));
+/
+select * from movie_app.user;
+/
+select * from movie_app.cart;
+/
+#truncate table movie_app.movie_dtls;
+/
+select * from movie_app.movie_order;
+/
+select * from movie_app.movie_dtls ;
+#update movie_app.movie_dtls set movieCategory="Old" where movieid = 8;
+commit;
+/
+alter table movie_app.cart
+ADD status int;
+/
+CREATE TABLE movie_app.movie_dtls (
+movieid INT NOT NULL AUTO_INCREMENT,
+moviename VARCHAR(45) NULL,
+director VARCHAR(45) NULL,
+price DOUBLE NULL,
+movieCategory VARCHAR(45) NULL,
+status VARCHAR(45) NULL,
+photo VARCHAR(45) NULL,
+PRIMARY KEY (movieid));
+/
+CREATE TABLE movie_app.user (
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(45),
+    email varchar(45),
+    usercol varchar(45),
+    phno varchar(45),
+    password varchar(45),
+    address varchar(45),
+    landmark varchar(45),
+    city varchar(45),
+    state varchar(45),
+    PRIMARY KEY (id));
+/
+CREATE TABLE movie_app.cart (
+
+cartid INT NOT NULL AUTO_INCREMENT,
+
+movieid INT NULL,
+
+userid INT NULL,
+
+movieName VARCHAR(45) NULL,
+
+director VARCHAR(45) NULL,
+
+price DOUBLE NULL,
+
+total_price DOUBLE NULL,
+
+PRIMARY KEY (cartid));
+/
+
+create TABLE movie_app.movie_order (
+
+id INT NOT NULL AUTO_INCREMENT,
+
+order_id VARCHAR(45) NULL,
+
+username VARCHAR(45) NULL,
+
+email VARCHAR(45) NULL,
+
+address VARCHAR(500) NULL,
+
+phone VARCHAR(45) NULL,
+
+payment_type varchar(45) null,
+
+total_price varchar(45) null,
+
+PRIMARY KEY (id));
+/
+CREATE TABLE movie_app.movie_order_dtls(
+id INT NOT NULL AUTO_INCREMENT,
+
+order_id VARCHAR(45) NULL,
+
+cartid INT NULL,
+
+moviename VARCHAR(45) NULL,
+
+director VARCHAR(45) NULL,
+
+price VARCHAR(45) NULL,
+
+PRIMARY KEY (id));
+
+select * from movie_app.movie_dtls;
+/
+select max(no)+1 from (select @rownum:=@rownum+1 No from movie_app.movie_order, (SELECT @rownum:=0) r) a;
+
+select * from movie_app.movie_order;
+select * from movie_app.user;
+/
+#update movie_app.user set address='Burma',landmark='Asean',city='Rangoon',state='Lower Rangoon',pincode='11211' where id=1;
+/
+select o.order_id,o.username,o.address,o.email,o.phone,d.moviename,d.director,d.price,o.payment_type from movie_app.movie_order o,movie_app.movie_order_dtls d where o.order_id = d.order_id and o.email="thintzaw89@gmail.com";
+/
+SELECT COALESCE(max(substr(order_id,10)), 0)+1 AS order_id from movie_app.movie_order;
+/
+select max(order_id)+1 AS order_id from movie_app.movie_order;
+/
+select o.order_id,o.username,o.address,o.phone,d.moviename,d.director,d.price,o.payment_type,o.email
+from movie_app.movie_order o,movie_app.movie_order_dtls d where o.order_id = d.order_id order by o.order_id
+/
+#truncate table movie_app.movie_order_dtls;
