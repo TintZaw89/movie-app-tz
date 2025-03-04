@@ -10,7 +10,7 @@ public class DBConnect {
 	{
 	    final String host = "jdbc:mysql://localhost:3306/movie_app";
 	    final String username = "root";
-	    final String password = "123123";
+	    final String password = "******";
 		try 
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
