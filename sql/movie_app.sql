@@ -3,7 +3,7 @@ select * from movie_app.user;
 select * from movie_app.cart;
 /
 select * from movie_app.movie_dtls ;
-update movie_app.user set name="Thint Zaw" where id = 1;
+update movie_app.user set name="Tinnnee" where id = 1;
 commit;
 /
 CREATE TABLE movie_app.movie_dtls (
