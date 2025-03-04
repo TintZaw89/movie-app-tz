@@ -129,7 +129,7 @@ select * from movie_app.user;
 /
 #update movie_app.user set address='Burma',landmark='Asean',city='Rangoon',state='Lower Rangoon',pincode='11211' where id=1;
 /
-select o.order_id,o.username,o.address,o.email,o.phone,d.moviename,d.director,d.price,o.payment_type from movie_app.movie_order o,movie_app.movie_order_dtls d where o.order_id = d.order_id and o.email="thintzaw89@gmail.com";
+select o.order_id,o.username,o.address,o.email,o.phone,d.moviename,d.director,d.price,o.payment_type from movie_app.movie_order o,movie_app.movie_order_dtls d where o.order_id = d.order_id and o.email="trunck12@gmail.com";
 /
 SELECT COALESCE(max(substr(order_id,10)), 0)+1 AS order_id from movie_app.movie_order;
 /
